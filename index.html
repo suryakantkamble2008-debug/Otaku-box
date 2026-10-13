@@ -85,14 +85,14 @@ footer{text-align:center;border-top:1px solid #29243c;padding:25px;color:#89839a
 <footer>OTAKU BOX © 2026 · MADE FOR ANIME FANS ✦</footer>
 <script>
 const anime=[
-{id:1,n:"Demon Slayer",g:"Action",y:2019,r:"9.0",e:"⚔️",c:"#69334f"},
-{id:2,n:"Your Name",g:"Romance",y:2016,r:"8.9",e:"🌌",c:"#345b88"},
-{id:3,n:"Solo Leveling",g:"Fantasy",y:2024,r:"8.7",e:"🌑",c:"#39315f"},
-{id:4,n:"Naruto",g:"Action",y:2002,r:"8.4",e:"🍥",c:"#8c532c"},
-{id:5,n:"Haikyu!!",g:"Sports",y:2014,r:"8.7",e:"🏐",c:"#a65c27"},
-{id:6,n:"Re:Zero",g:"Fantasy",y:2016,r:"8.1",e:"❄️",c:"#31587a"},
-{id:7,n:"Weathering With You",g:"Romance",y:2019,r:"8.2",e:"🌧️",c:"#36718b"},
-{id:8,n:"Jujutsu Kaisen",g:"Action",y:2020,r:"8.6",e:"👊",c:"#583e77"}
+{id:1,n:"Demon Slayer",g:"Action",y:2019,r:"9.0",e:"⚔️",c:"#69334f",img:"https://cdn.myanimelist.net/images/anime/1286/99889.jpg"},
+{id:2,n:"Your Name",g:"Romance",y:2016,r:"8.9",e:"🌌",c:"#345b88",img:"https://cdn.myanimelist.net/images/anime/5/87048.jpg"},,g:"Romance",y:2016,r:"8.9",e:"🌌",c:"#345b88"},
+{id:3,n:"Solo Leveling",g:"Fantasy",y:2024,r:"8.7",e:"🌑",c:"#39315f",img:"https://cdn.myanimelist.net/images/anime/1806/126216.jpg"},,g:"Fantasy",y:2024,r:"8.7",e:"🌑",c:"#39315f"},
+{id:4,n:"Naruto",g:"Action",y:2002,r:"8.4",e:"🍥",c:"#8c532c",img:"https://cdn.myanimelist.net/images/13/17405.jpg"},,g:"Action",y:2002,r:"8.4",e:"🍥",c:"#8c532c"},
+{id:5,n:"Haikyu!!",g:"Sports",y:2014,r:"8.7",e:"🏐",c:"#a65c27",img:"https://cdn.myanimelist.net/images/anime/7/76014.jpg"},,g:"Sports",y:2014,r:"8.7",e:"🏐",c:"#a65c27"},
+{id:6,n:"Re:Zero",g:"Fantasy",y:2016,r:"8.1",e:"❄️",c:"#31587a",img:"https://cdn.myanimelist.net/images/anime/11/79410.jpg"},,g:"Fantasy",y:2016,r:"8.1",e:"❄️",c:"#31587a"},
+{id:7,n:{id:7,n:"Weathering With You",g:"Romance",y:2019,r:"8.2",e:"🌧️",c:"#36718b",img:"https://cdn.myanimelist.net/images/anime/1880/101146.jpg"},,g:"Romance",y:2019,r:"8.2",e:"🌧️",c:"#36718b"},
+{id:8,n:"Jujutsu Kaisen",g:"Action",y:2020,r:"8.6",e:"👊",c:"#583e77",img:"https://cdn.myanimelist.net/images/anime/1171/109222.jpg"},g:"Action",y:2020,r:"8.6",e:"👊",c:"#583e77"}
 ];
 let genre="All",saved=[];
 try{saved=JSON.parse(localStorage.getItem("otaku-saved")||"[]")}catch(e){saved=[]}
@@ -105,7 +105,9 @@ document.getElementById("filters").style.display=onlySaved?"none":"flex";
 document.getElementById("count").textContent=saved.length;
 document.getElementById("grid").innerHTML=list.length?list.map(a=>`
 <article class="card">
-<div class="poster" style="--c:${a.c}">${a.e}</div>
+<div class="poster" style="--c:${a.c}">
+  ${a.img ? `<img src="${a.img}" alt="${a.n} poster" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" onerror="this.style.display='none'">` : a.e}
+</div>
 <div class="info">
 <div class="title">${a.n}</div>
 <div class="meta">${a.y} · ${a.g}</div>
